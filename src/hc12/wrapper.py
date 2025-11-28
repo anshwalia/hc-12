@@ -197,3 +197,13 @@ class HC12:
             self._logger.error(f"Unable to set mode setting. {str(ex)}")
         else:
             self._logger.info(f"Mode set to {self._parse_mode(command_response)}")
+
+    def send(self, data: bytes) -> int:
+        """Send data to HC-12 module"""
+        try:
+            bytes_written = self._device.write(data)
+            self._logger.debug(f"Bytes Written : {bytes_written}")
+        except Exception as ex:
+            self._logger.error(f"Unable to send data to HC-12 module. {str(ex)}")
+
+        return bytes_written
