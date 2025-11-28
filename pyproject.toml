@@ -1,0 +1,14 @@
+[project]
+name = "hc12"
+version = "0.1"
+dependencies = ["pyserial==3.5"]
+
+[project.optional-dependencies]
+dev = ["pytest", "black"]
+
+[build-system]
+requires = ["setuptools>=80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+hc12 = "hc12.cli:main"
